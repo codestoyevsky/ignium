@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mandarin", "Mandarin\Mandarin.csproj", "{92955571-3A08-4B24-AFE2-0E8119254BC6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92955571-3A08-4B24-AFE2-0E8119254BC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92955571-3A08-4B24-AFE2-0E8119254BC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92955571-3A08-4B24-AFE2-0E8119254BC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92955571-3A08-4B24-AFE2-0E8119254BC6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A146E4F0-C767-4D2D-8BAF-D3E9D6EBAD6A}
+	EndGlobalSection
+EndGlobal
