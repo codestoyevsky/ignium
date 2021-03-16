@@ -5,7 +5,7 @@ Task Description: Faucet - cryptocurrency reward system which gives out small am
 
   - Get current faucet bitcoin balance and value (in $); [Done :white_check_mark:]
 
-  - claim 0.001 bitcoin from the faucet, by provided email. [Done :white_check_mark:]
+  - claim 0.001 bitcoin from the faucet, by provided email. [Done :white_check_mark:, Example Emails : tallinn@ignium.io, riga@ignium.io, vilnius@ignium.io]
 
     - If the faucet doesn't have the required amount, don't claim anything. [Done :white_check_mark:]
 
