@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Quartz;
 using Quartz.Impl;
 using Quartz.Spi;
@@ -38,14 +39,19 @@ namespace Mandarin
          services.AddSingleton<IncreaseBalanceJob>();
          services.AddSingleton(new JobSchedule(
              jobType: typeof(IncreaseBalanceJob),
-             cronExpression: "0 0/1 * 1/1 * ? *")); // run every 5 minute
-         //services.AddScoped<ICoinDeskClient, CoinDeskClient>();
+             cronExpression: Configuration["Quartz:IncreaseBalanceJob"]));
+
+         services.AddSingleton<NotifyAdminJob>();
+         services.AddSingleton(new JobSchedule(
+             jobType: typeof(NotifyAdminJob),
+             cronExpression: Configuration["Quartz:NotifyAdminJob"]));
+
          services.AddControllers();
          services.AddSwaggerGen();
       }
 
       // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-      public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+      public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
       {
          if (env.IsDevelopment())
          {
@@ -72,8 +78,14 @@ namespace Mandarin
          {
             endpoints.MapControllers();
          });
+
+         loggerFactory.AddFile(Configuration["LogFilePath"]);
+
+         // NOTE: this must go at the end of Configure
+         var serviceScopeFactory = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>();
+         using var serviceScope = serviceScopeFactory.CreateScope();
+         var dbContext = serviceScope.ServiceProvider.GetService<MandarinDBContext>();
+         dbContext.Database.EnsureCreated();
       }
    }
-
-
 }

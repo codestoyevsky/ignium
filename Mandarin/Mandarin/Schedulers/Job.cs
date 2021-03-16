@@ -2,7 +2,6 @@
 
 namespace Mandarin.Classes
 {
-
    public class JobSchedule
    {
       public JobSchedule(Type jobType, string cronExpression)
