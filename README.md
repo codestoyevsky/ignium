@@ -2,21 +2,21 @@
 
 - Implement REST API that provides methods:
 
-- - Get current faucet bitcoin balance and value (in $); [Done]
+  - Get current faucet bitcoin balance and value (in $); [Done]
 
-- - claim 0.001 bitcoin from the faucet, by provided email. [Done]
+  - claim 0.001 bitcoin from the faucet, by provided email. [Done]
 
-- - - If the faucet doesn't have the required amount, don't claim anything. [Done]
+    - If the faucet doesn't have the required amount, don't claim anything. [Done]
 
-- - - Each email can only claim once per 24h. [Done]
+    - Each email can only claim once per 24h. [Done]
 
-- - - Claim simply reduces faucet balance by claimed bitcoin amount. [Done]
+    - Claim simply reduces faucet balance by claimed bitcoin amount. [Done]
 
 - Initial balance at the server overall start is 0. Upon further server restarts, the balance is persisted. [Done]
 
 - Have Scheduled job running every 2 hours, adding $500 worth of bitcoin to the faucet. [Done, Used Quartz.net, CRON settings saved in appsettins.json]
 
-- - You'd need to get live bitcoin price to know how much bitcoin to add. Up to you where to get. [Done, used https://www.coindesk.com/coindesk-api]
+  - You'd need to get live bitcoin price to know how much bitcoin to add. Up to you where to get. [Done, used https://www.coindesk.com/coindesk-api]
 
 - Scheduled job running every 24 hours, sending out an email to an admin about total claimed amount since last sent email. [Done, SMTP settings need to be configured in appsettings.json]
 
